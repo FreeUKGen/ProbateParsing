@@ -2,7 +2,7 @@ import os
 import pytesseract
 from PIL import Image
 
-folder_path = "1873 Probate/Cropped/"
+folder_path = "1873 Probate/Cropped/Sample/"
 dest_path = "1873 Probate/OCR/"
 folders = os.listdir(folder_path)
 checked = {}

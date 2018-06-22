@@ -4,7 +4,7 @@ import os
 
 folder_path = "1873 Probate/A2/"
 dest_path = "Cropped_A2/"
-hocr_path = "1873 Probate/hocr_A2/"
+hocr_path = "1873 Probate/hocr_A/"
 folders = os.listdir(folder_path)
 for files in folders:
     test_image = files
