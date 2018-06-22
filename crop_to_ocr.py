@@ -1,36 +1,46 @@
+'''
+This python script takes the directry containing cropped entries for a given image and creates a text file that produces OCR text on all the cropped entries.
+
+python3 crop_to_ocr.py <source_directory> <destination_directory>
+
+Dependencies
+1. pytesseract
+    Install tesseract using sudo apt-get install tesseract-ocr
+    Install pytesseract using pip3 install pytesseract
+
+2. Pillow
+    pip3 install Pillow
+'''
+
 import os
+import sys
 import pytesseract
 from PIL import Image
 
-folder_path = "1873 Probate/Cropped/Sample/"
-dest_path = "1873 Probate/OCR/"
-folders = os.listdir(folder_path)
-checked = {}
+folder_path = sys.argv[1]
+dest_path = sys.argv[2]
+folder = os.listdir(folder_path)
+checked = {}    # all files that have already been used for OCR
 
-for folder in sorted(folders):
-    print(folder)
-    for files in sorted(os.listdir(folder_path+folder)):
-        checked[files]=0
+for file in sorted(folder):
+    checked[file] = 0  # initializing all files
 
-    for files in sorted(os.listdir(folder_path+folder)):
-        file_base = files.split('_')
-        # do this at the end - checked[files] = 1
-        print(files)
-        if checked[files]==0:
-            f = open(dest_path+folder+"/"+file_base[0]+".txt", "a+")
-            text = pytesseract.image_to_string(Image.open(folder_path+folder+"/"+files))
-            f.write(text)
-            f.write("\n--------------------\n")
-            checked[files] = 1
-            for i in sorted(os.listdir(folder_path+folder)):
-                if os.path.isfile(os.path.join(folder_path+folder+"/", i)) and file_base[0] in i:
-                    print(">" + i)
-                    checked[i] = 1
-                    text = pytesseract.image_to_string(Image.open(folder_path+folder+"/"+i))
-                    f.write(text)
-                    f.write("\n--------------------\n")
-            f.close()
+for file in sorted(folder):
+    file_base = file.split('_')
+    print(file)
+    if checked[file] == 0:
+        f = open(dest_path + "/" + file_base[0] + ".txt", "a+")    # open file
+        text = pytesseract.image_to_string(Image.open(folder_path + "/" + file))  # OCR on image
+        f.write(text)   # write text to file
+        f.write("\n--------------------\n")
+        checked[file] = 1
+        for i in sorted(folder):
+            if os.path.isfile(os.path.join(folder_path + "/" + i)) and file_base[0] in i:
+                checked[i] = 1
+                text = pytesseract.image_to_string(Image.open(folder_path + "/" + i))
+                f.write(text)
+                f.write("\n--------------------\n")
+        f.close()   # close file
 
-        else:
-            continue
-
+    else:
+        continue
