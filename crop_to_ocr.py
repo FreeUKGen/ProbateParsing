@@ -69,14 +69,14 @@ if(ch == 1):
         if checked[file] == 0:
             f = open(dest_path + "/" + file_base[0] + ".txt", "a+")    # open file
             text = pytesseract.image_to_string(Image.open(folder_path + "/" + file))  # OCR on image
-            f.write("\n--------------------\n")
+            f.write("\n##########\n")
             f.write(text)   # write text to file
             checked[file] = 1
             for i in folder:
                 if os.path.isfile(os.path.join(folder_path + "/" + i)) and file_base[0] in i and checked[file] == 0:
                     checked[i] = 1
                     text = pytesseract.image_to_string(Image.open(folder_path + "/" + i))
-                    f.write("\n--------------------\n")
+                    f.write("\n##########\n")
                     f.write(text)
             f.close()   # close file
 
@@ -95,7 +95,7 @@ elif(ch == 2):
                 checked[file] = 1
             else:
                 text = pytesseract.image_to_string(Image.open(folder_path + "/" + file))  # OCR on image
-                f.write("\n--------------------\n")
+                f.write("\n##########\n")
                 f.write(text)   # write text to file
                 checked[file] = 1
 

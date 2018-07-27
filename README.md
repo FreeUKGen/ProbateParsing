@@ -17,3 +17,7 @@ Tools for OCR and parsing of probate books to be loaded into the MyopicVicar sea
 [hocr_parsing.py](../blob/master/hocr_parsing.py) - This python script is used to convert hocr output to cropped images based on bounding boxes of each entry.
 
 [hocr_to_crop.py](../blob/master/hocr_to_crop.py) - This python script is used to convert hocr output to cropped images based on bounding boxes of each entry for a folder containing many images.
+
+[basic_ner.py](../blob/master/basic_ner.py) - This python script is used to produce named entities for each entry.
+
+[initial_ner.csv](../blob/master/initial_ner.csv) - A Comma Separated File containing the probate entry text as well as specific entities in the text.
