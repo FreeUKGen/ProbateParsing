@@ -8,16 +8,16 @@ In previous projects, all this material was transcribed manually by volunteers, 
 Tools for OCR and parsing of probate books to be loaded into the MyopicVicar search engine.
 
 ## Files used
-[crop_to_ocr.py](../blob/master/crop_to_ocr.py) - This python script takes the directry containing cropped entries for a given image and creates a text file that produces OCR text on all the cropped entries.
+[crop_to_ocr.py](../master/crop_to_ocr.py) - This python script takes the directry containing cropped entries for a given image and creates a text file that produces OCR text on all the cropped entries.
 
-[crop.py](../blob/master/crop.py) - This file will crop all images in a directory to concentrate the text on the image.
+[crop.py](../master/crop.py) - This file will crop all images in a directory to concentrate the text on the image.
 
-[hocr_output.sh](../blob/master/hocr_output.sh) - This shell script will produce a hocr file for each image file in a folder.
+[hocr_output.sh](../master/hocr_output.sh) - This shell script will produce a hocr file for each image file in a folder.
 
-[hocr_parsing.py](../blob/master/hocr_parsing.py) - This python script is used to convert hocr output to cropped images based on bounding boxes of each entry.
+[hocr_parsing.py](../master/hocr_parsing.py) - This python script is used to convert hocr output to cropped images based on bounding boxes of each entry.
 
-[hocr_to_crop.py](../blob/master/hocr_to_crop.py) - This python script is used to convert hocr output to cropped images based on bounding boxes of each entry for a folder containing many images.
+[hocr_to_crop.py](../master/hocr_to_crop.py) - This python script is used to convert hocr output to cropped images based on bounding boxes of each entry for a folder containing many images.
 
-[basic_ner.py](../blob/master/basic_ner.py) - This python script is used to produce named entities for each entry.
+[basic_ner.py](../master/basic_ner.py) - This python script is used to produce named entities for each entry.
 
-[initial_ner.csv](../blob/master/initial_ner.csv) - A Comma Separated File containing the probate entry text as well as specific entities in the text.
+[initial_ner.csv](../master/initial_ner.csv) - A Comma Separated File containing the probate entry text as well as specific entities in the text.
