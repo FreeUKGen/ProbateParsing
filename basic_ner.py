@@ -62,7 +62,7 @@ directory_data = list(filter(None, ocr_data.split("##########")))   # list with 
 directory_data.remove(directory_data[0])
 
 nlp = spacy.load("en_core_web_lg")      # using spacy's predefined model
-nlp.pipe_names
+
 if 'ner' not in nlp.pipe_names:
     ner = nlp.create_pipe('ner')
     nlp.add_pipe(ner, last=True)
