@@ -22,10 +22,10 @@ print(entities)
 df = pd.DataFrame()
 # df['file_name'] = pd.Series(file_name)
 df['text'] = pd.Series(directory_data)
-df['entities'] = pd.Series(entities, index=df.index)
+# df['entities'] = pd.Series(entities, index=df.index)
 
 for i in range(0, len(entities)):
-    labels = df.loc[i]['entities']
+    labels = entities[i]
     for label in labels:
         print(label)
         entity = label[1]
@@ -37,4 +37,6 @@ for i in range(0, len(entities)):
             print("entered else")
             df.loc[i][entity.lower()].append(label[0])
 
+df.to_csv('trained_ner.tsv', sep='\t', index=False)
 df.to_csv('trained_ner.csv', index=False)
+df.to_excel('trained_ner.xlsx', index=False)
