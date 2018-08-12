@@ -3,7 +3,7 @@ This python script is used to convert hocr output to cropped images based on bou
 
 To run the script:
 
-python3 hocr_parsing.py <source_path> <destination_path> <path_to_hocr_file> <image_file>
+python3 hocr_parsing.py <path_to_image> <path_to_hocr_file> <destination_path>
 
 Dependencies:
 1. BeautifulSoup - pip3 install beautifulsoup4
@@ -30,22 +30,29 @@ Algorithm 2 filters entries with bounding boxes containing the above text i.e. t
 '''
 from bs4 import BeautifulSoup
 from PIL import Image
-import string
 import sys
+import os
 
 path = sys.argv[1]
-dest_path = sys.argv[2]
-hocr_path = sys.argv[3]
-test_image = sys.argv[4]
+hocr_path = sys.argv[2]
+dest_path = sys.argv[3]
 
-filename = test_image.split(".")[0] + "_"
-original = Image.open(path + test_image)
+if dest_path is not None:
+    if not os.path.exists(dest_path):
+        os.mkdir(dest_path)
+
+path = path + "/" if (path[-1] is not '/') else path
+hocr_path = hocr_path + "/" if (hocr_path[-1] is not '/') else hocr_path
+dest_path = dest_path + "/" if (dest_path[-1] is not '/') else dest_path
+
+filename = path.split('/')[-1].split(".")[0] + "_"
+original = Image.open(path)
 max_w, max_h = original.size
 
 print("\nEnter your choice for algorithm\n\t1.Using LHS column bounding boxes\n\t2.Using RHS bounding boxes\nYour choice: ")
 choice = input()
 
-with open(hocr_path + test_image + '.hocr', 'r') as myfile:
+with open(hocr_path, 'r') as myfile:
     data = myfile.read().replace('\n', '')
 soup = BeautifulSoup(data, 'lxml')
 
@@ -72,6 +79,10 @@ elif(int(choice) == 2):
         first_word = name.text.strip().split(" ")
         if(first_word[0].isnumeric()):
             entries.append(name)    # list for all entries
+
+if(len(entries) == 0 or len(entries) == 1):
+    print("Use page segmentation mode 4/6 for this file i.e. tesseract filename.jpg filename -psm 4")
+    exit(0)
 
 coords_initial = entries[0].attrs['title'].split(" ")  # coordinates for first entry in the list
 x1_curr = 0

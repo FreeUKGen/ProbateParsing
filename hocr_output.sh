@@ -1,1 +1,1 @@
-for filename in *; do echo "tesseract ${filename} ${filename} -psm 1 hocr"; tesseract ${filename} ${filename} -psm 1 hocr; done
+for filename in *; do echo "tesseract ${filename} ${filename} hocr"; tesseract ${filename} ${filename} hocr; done

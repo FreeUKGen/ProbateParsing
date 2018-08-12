@@ -13,11 +13,20 @@ import os
 
 folder_path = sys.argv[1]
 dest_path = sys.argv[2]
-optimal_w = 2458
-optimal_h = 3906
 
-folders = os.listdir(folder_path)
-for files in folders:
+if dest_path is not None:
+    if not os.path.exists(dest_path):
+        os.mkdir(dest_path)
+
+folder_path = folder_path + "/" if (folder_path[-1] is not '/') else folder_path
+dest_path = dest_path + "/" if (dest_path[-1] is not '/') else dest_path
+
+print("Enter the width and height of the resulting image. Cropping will be done from both sides\n")
+optimal_w = int(input())
+optimal_h = int(input())
+
+folder = sorted(os.listdir(folder_path))
+for files in folder:
     file = files.split('/')[-1]
     print(file)
     original = Image.open(folder_path + file)

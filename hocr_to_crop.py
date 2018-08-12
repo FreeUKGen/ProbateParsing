@@ -3,7 +3,7 @@ This python script is used to convert hocr output to cropped images based on bou
 
 To run the script:
 
-python3 hocr_parsing.py <source_directory> <destination_directory> <path_to_hocr_file>
+python3 hocr_parsing.py <source_directory> <path_to_hocr_file> <destination_directory>
 
 Dependencies:
 1. BeautifulSoup - pip3 install beautifulsoup4
@@ -35,15 +35,26 @@ import os
 import sys
 
 folder_path = sys.argv[1]
-dest_path = sys.argv[2]
-hocr_path = sys.argv[3]
-folders = os.listdir(folder_path)
+hocr_path = sys.argv[2]
+dest_path = sys.argv[3]
+
+folders = sorted(os.listdir(folder_path))
+
+if dest_path is not None:
+    if not os.path.exists(dest_path):
+        os.mkdir(dest_path)
+
+folder_path = folder_path + "/" if (folder_path[-1] is not '/') else folder_path
+hocr_path = hocr_path + "/" if (hocr_path[-1] is not '/') else hocr_path
+dest_path = dest_path + "/" if (dest_path[-1] is not '/') else dest_path
 
 print("\nEnter your choice for algorithm\n\t1.Using LHS column bounding boxes\n\t2.Using RHS bounding boxes\nYour choice: ")
 choice = input()
 
 for files in folders:
     test_image = files
+    if(test_image.endswith('.hocr') or test_image.endswith('.sh')):
+        continue
     filename = test_image.split(".")[0] + "_"
 
     original = Image.open(folder_path + test_image)
@@ -77,7 +88,7 @@ for files in folders:
                 entries.append(name)    # list for all entries
 
     if(len(entries) == 0 or len(entries) == 1):
-        print("Use page segmentation mode 4/6 for this file i.e. tesseract filename.jpg filename -psm 4")
+        print(files + " - Use page segmentation mode 4/6 for this file i.e. tesseract filename.jpg filename -psm 4")
         continue
 
     coords_initial = entries[0].attrs['title'].split(" ")  # coordinates for first entry in the list
@@ -122,3 +133,4 @@ for files in folders:
     cropped_example.save(dest_path + filename + str(i) + ".jpg")
     print(dest_path + filename + str(i) + ".jpg")
     os.remove(folder_path + files)
+    os.remove(hocr_path + files + '.hocr')
