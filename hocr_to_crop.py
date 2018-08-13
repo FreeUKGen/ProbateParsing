@@ -3,7 +3,7 @@ This python script is used to convert hocr output to cropped images based on bou
 
 To run the script:
 
-python3 hocr_parsing.py <source_directory> <path_to_hocr_file> <destination_directory>
+python3 hocr_parsing.py <source_directory> <path_to_hocr_directory> <destination_directory>
 
 Dependencies:
 1. BeautifulSoup - pip3 install beautifulsoup4

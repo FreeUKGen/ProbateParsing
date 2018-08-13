@@ -1,7 +1,5 @@
 '''
-Creates NER training data in SpaCy format from JSON downloaded from Dataturks.Once you download the JSON file from Dataturks, you can load it using the python script and
-
-Outputs the training data in a pickle file having a format which can be used for training using SpaCy.
+Creates NER training data in SpaCy format from JSON downloaded from Dataturks.Once you download the JSON file from Dataturks, you can load it using the python script and outputs the training data in a pickle file having a format which can be used for training using SpaCy.
 
 A pickle file serializes objects so they can be saved to a file, and loaded in a program again later on. It has an extension of *.pkl.
 

@@ -46,7 +46,7 @@ def train_spacy(training_pickle_file, output_dir):
     other_pipes = [pipe for pipe in nlp.pipe_names if pipe != 'ner']
     with nlp.disable_pipes(*other_pipes):  # only train NER
         optimizer = nlp.begin_training()
-        for itn in range(10):        # you can change the number of iteration for training
+        for itn in range(1):        # you can change the number of iteration for training
             print("Starting iteration " + str(itn))
             random.shuffle(TRAIN_DATA)
             losses = {}

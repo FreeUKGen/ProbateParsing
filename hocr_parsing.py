@@ -41,8 +41,6 @@ if dest_path is not None:
     if not os.path.exists(dest_path):
         os.mkdir(dest_path)
 
-path = path + "/" if (path[-1] is not '/') else path
-hocr_path = hocr_path + "/" if (hocr_path[-1] is not '/') else hocr_path
 dest_path = dest_path + "/" if (dest_path[-1] is not '/') else dest_path
 
 filename = path.split('/')[-1].split(".")[0] + "_"
