@@ -18,6 +18,12 @@ Tools for OCR and parsing of probate books to be loaded into the MyopicVicar sea
 
 [hocr_to_crop.py](../master/hocr_to_crop.py) - This python script is used to convert hocr output to cropped images based on bounding boxes of each entry for a folder containing many images.
 
-[basic_ner.py](../master/basic_ner.py) - This python script is used to produce named entities for each entry.
+[crop_to_ocr.py](../master/crop_to_ocr.py) - This python script takes the directry containing cropped entries for a given image and creates a text file that produces OCR text on all the cropped entries.
 
-[initial_ner.csv](../master/initial_ner.csv) - A Comma Separated File containing the probate entry text as well as specific entities in the text.
+[dataturks_to_spacy.py](../master/dataturks_to_spacy.py) - Creates NER training data in SpaCy format from JSON downloaded from Dataturks.Once you download the JSON file from Dataturks, you can load it using the python script and outputs the training data in a pickle file having a format which can be used for training using SpaCy.
+
+[train_ner.py](../master/train_ner.py) - This script trains the Named Entity Recognition model and returns the trained model on the probate wills annotated data. The model can be imported to test the remaining entries that are not annotated to extract the entities.
+
+[test_ner.py](../master/test_ner.py) - This python script is used to produce named entities for each entry.
+
+[Inference_Data](../master/Inference_Data) - A csv, tsv and xlsx containing the probate entry text as well as specific entities in the text.
