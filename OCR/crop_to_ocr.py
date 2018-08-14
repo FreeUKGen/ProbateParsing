@@ -6,9 +6,9 @@ python3 crop_to_ocr.py <source_directory> <destination_directory>
 Dependencies
 1. pytesseract
     Install tesseract using sudo apt-get install tesseract-ocr
-    Install pytesseract using pip3 install pytesseract
+    Install pytesseract using pip install pytesseract
 2. Pillow
-    pip3 install Pillow
+    pip install Pillow
 '''
 
 import os

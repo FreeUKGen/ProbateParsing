@@ -9,7 +9,7 @@ python3 test_ner.py <path_to_model_directory> <path_to_test_data> <destination_p
 
 Dependencies:
 1. SpaCy :
-        pip3 install -U spacy
+        pip install -U spacy
 
         Then, download and install a language model so that the semantics for the English language are used while training.
 

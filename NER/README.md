@@ -19,11 +19,11 @@ Tool used to annotate the data is called Dataturks. It has pre-built support for
 
 
 ## Features used in Phase 3:
-**[dataturks_to_spacy.py](../master/dataturks_to_spacy.py)** - Creates NER training data in SpaCy format from JSON downloaded from Dataturks.Once you download the JSON file from Dataturks, you can load it using the python script.  
+**[dataturks_to_spacy.py](../NER/dataturks_to_spacy.py)** - Creates NER training data in SpaCy format from JSON downloaded from Dataturks.Once you download the JSON file from Dataturks, you can load it using the python script.  
 
-**[train_ner.py](../master/train_ner.py)** - This script trains the Named Entity Recognition model and returns the trained model on the probate wills annotated data. The model can be imported to test the remaining entries that are not annotated to extract the entities.  
+**[train_ner.py](../NER/train_ner.py)** - This script trains the Named Entity Recognition model and returns the trained model on the probate wills annotated data. The model can be imported to test the remaining entries that are not annotated to extract the entities.  
 
-**[test_ner.py](../master/test_ner.py)** - This script tests the Named Entity Recognition model against the unannotated probate data. The model can be imported to test the remaining entries that are not annotated to extract the entities.  
+**[test_ner.py](../NER/test_ner.py)** - This script tests the Named Entity Recognition model against the unannotated probate data. The model can be imported to test the remaining entries that are not annotated to extract the entities.  
 
 ## Dependencies in Phase 3:
 1. [SpaCy](https://spacy.io/usage/models)
@@ -47,19 +47,19 @@ If you encounter an error then you can download it using the command -
 
 
 ## Expected Output:
-**[dataturks_to_spacy.py](../master/dataturks_to_spacy.py)** - Once you download the dataturks annotated data from Dataturks, you need to convert it to a format that is acceptable for SpaCy while training. It accepts the json file and destination directory as input. It outputs the training data in a pickle file having a format which can be used for training using SpaCy.  
+**[dataturks_to_spacy.py](../NER/dataturks_to_spacy.py)** - Once you download the dataturks annotated data from Dataturks, you need to convert it to a format that is acceptable for SpaCy while training. It accepts the json file and destination directory as input. It outputs the training data in a pickle file having a format which can be used for training using SpaCy.  
 `python3 dataturks_to_spacy.py <path_to_json_file> <destination_path>`
 
 ![dataturks_to_spacy](https://i.imgur.com/mpjsCPR.png)
 
-**[train_ner.py](../master/train_ner.py)** - The input to the script is the pickle file generated during the dataturks_to_spacy.py and returns the trained model on the probate wills annotated data. The model can be imported to test the remaining entries that are not annotated to extract the entities.  
+**[train_ner.py](../NER/train_ner.py)** - The input to the script is the pickle file generated during the dataturks_to_spacy.py and returns the trained model on the probate wills annotated data. The model can be imported to test the remaining entries that are not annotated to extract the entities.  
 	`python3 train_ner.py <path_to_pickle_file> <model_destination_path>`
 
 ![train_ner](https://i.imgur.com/bnh3pUs.png)
 
 **Note**: Make sure that you create a new folder for the trained model and add it to the destination path.
 
-**[test_ner.py](../master/test_ner.py)** - The input to the script is the folder containing the training model generated during the train_ner.py and a text file containing all the entries that need to be extracted. The output will be a excel, csv and tsv file.  
+**[test_ner.py](../NER/test_ner.py)** - The input to the script is the folder containing the training model generated during the train_ner.py and a text file containing all the entries that need to be extracted. The output will be a excel, csv and tsv file.  
 `python3 test_ner.py <path_to_model_directory> <path_to_test_data> <destination_path_for_files>`
 
 ![test_ner](https://i.imgur.com/mvJDrhO.png)

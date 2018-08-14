@@ -6,8 +6,8 @@ To run the script:
 python3 hocr_parsing.py <path_to_image> <path_to_hocr_file> <destination_path>
 
 Dependencies:
-1. BeautifulSoup - pip3 install beautifulsoup4
-2. Pillow - pip3 install Pillow
+1. BeautifulSoup - pip install beautifulsoup4
+2. Pillow - pip install Pillow
 
 This method gets values of all bounding boxes in the hocr output - filters those entries which either have no value or those that do not start with uppercase or numeric values.
 

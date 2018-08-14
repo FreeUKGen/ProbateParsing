@@ -9,7 +9,7 @@ python3 train_ner.py <path_to_pickle_file> <model_destination_path>
 
 Dependencies:
 1. SpaCy :
-        pip3 install -U spacy
+        pip install -U spacy
 
         Then, download and install a language model so that the semantics for the English language are used while training.
 

@@ -3,11 +3,11 @@ If the image file contains characters from previous/next pages it may interfere 
 
 The width and height of the image that needs to be obtained is taken for all images. A safe assumption is made for all images in a directory so that no text gets cropped.
 
-python3 crop.py <source_directory> <destination_directory>
+python crop.py <source_directory> <destination_directory>
 
 Dependencies
 1. Pillow
-    pip3 install Pillow
+    pip install Pillow
 '''
 
 
