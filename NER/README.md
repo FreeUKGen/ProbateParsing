@@ -26,14 +26,14 @@ Tool used to annotate the data is called Dataturks. It has pre-built support for
 **[test_ner.py](../NER/test_ner.py)** - This script tests the Named Entity Recognition model against the unannotated probate data. The model can be imported to test the remaining entries that are not annotated to extract the entities.  
 
 ## Dependencies in Phase 3:
-1. [SpaCy](https://spacy.io/usage/models)
+**1. [SpaCy](https://spacy.io/usage/models)**  
 spaCy's models can be installed as Python packages. This means that they're a component of your application, just like any other module. spaCy v2.0 features new neural models for tagging, parsing and entity recognition.
 Install spacy using the following command,  
 	`pip install -U spacy`  
 Then, download and install a language model so that the semantics for the English language are used while training.  
      `python3 -m spacy download en`
 
-2. [Pandas](https://pandas.pydata.org/)
+**2. [Pandas](https://pandas.pydata.org/)**  
 Pandas is a high-level data manipulation tool developed by Wes McKinney. It is built on the Numpy package and its key data structure is called the DataFrame. DataFrames allow you to store and manipulate tabular data in rows of observations and columns of variables.  
 For downloading pandas, you may need to download numpy and cython. For most cases if you run the command -  
 `pip install pandas`.  
@@ -41,9 +41,9 @@ If you encounter an error then you can download it using the command -
 `pip install numpy python-dateutil pytz six numpy`.
 
 
-3. [openpyxl](https://openpyxl.readthedocs.io/en/stable/)
-	openpyxl is a Python library to read/write Excel 2010 xlsx/xlsm/xltx/xltm files.  
-	`pip install openpyxl`
+**3. [openpyxl](https://openpyxl.readthedocs.io/en/stable/)**  
+openpyxl is a Python library to read/write Excel 2010 xlsx/xlsm/xltx/xltm files.  
+`pip install openpyxl`
 
 
 ## Expected Output:

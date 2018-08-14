@@ -8,13 +8,13 @@ In previous projects, all this material was transcribed manually by volunteers, 
 Tools for OCR and parsing of probate books to be loaded into the MyopicVicar search engine.
 
 ## Features
-**[Bounding Box](../master/Bounding_Boxes)**
+**[Bounding Box](../master/Bounding_Boxes)**  
 In phase 1, the scanned images of probate books are refined using Image Processing methods. For example, one page in a probate book consists of many entries. The aim of this phase is to isolate each entry by cropping the original image entry-wise to get the best possible output owing to some OCR discrepancies.
 
-**[Optical Character Recognition](../master/OCR)**
+**[Optical Character Recognition](../master/OCR)**  
 In phase 2, the cropped images of the probate books are parsed under an Optical Character Recognition algorithm to generate the information in text.
 
-**[Named Entity Recognition](../master/NER)**
+**[Named Entity Recognition](../master/NER)**  
 One of the most challenging parts of the project involves extracting meaningful information from the text generated in Phase 2. For the algorithm to extract particular fields like name, relationships and occupation, it must “learn” the semantics of each probate entry. Methods that tackle such problems form an integral part of Natural Language Processing.
 
 ## Setup Instructions

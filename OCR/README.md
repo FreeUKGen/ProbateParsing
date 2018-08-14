@@ -4,7 +4,7 @@
 **[crop_to_ocr.py](../OCR/crop_to_ocr.py)** - This python script takes the directory containing cropped entries for a given image and creates a text file that produces OCR text on all the cropped entries.
 
 ## Dependencies in Phase 2:
-1. [pytesseract](https://pypi.org/project/pytesseract/) - `pip install pytesseract`  
+**1. [pytesseract](https://pypi.org/project/pytesseract/)** - `pip install pytesseract`  
 Python-tesseract is an optical character recognition (OCR) tool for python. That is, it will recognize and “read” the text embedded in images.  
 Python-tesseract is a wrapper for Google’s Tesseract-OCR Engine. It is also useful as a stand-alone invocation script to tesseract, as it can read all image types supported by the Python Imaging Library, including jpeg, png, gif, bmp, tiff, and others, whereas tesseract-ocr by default only supports tiff and bmp. Additionally, if used as a script, Python-tesseract will print the recognized text instead of writing it to a file. Use the command.
 
