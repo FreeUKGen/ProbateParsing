@@ -1,5 +1,5 @@
 # Probate-Parsing
-Probate Parsing as a GSoC Student for Free UK Genealogy
+Probate Parsing as a GSoC Student for Free UK Genealogy. Refer to the [wiki](https://github.com/FreeUKGen/ProbateParsing/wiki).
 
 Free UK Genealogy aims to launch a new project to expose genealogical information from wills and probate books. These books record the date and location of people's deaths, their occupations, and often the same information about the family members that executed the wills.
 
@@ -7,23 +7,12 @@ In previous projects, all this material was transcribed manually by volunteers, 
 
 Tools for OCR and parsing of probate books to be loaded into the MyopicVicar search engine.
 
-## Files used
-[crop_to_ocr.py](../master/crop_to_ocr.py) - This python script takes the directry containing cropped entries for a given image and creates a text file that produces OCR text on all the cropped entries.
+## Features
+**[Bounding Box](../master/Bounding_Boxes)**
+In phase 1, the scanned images of probate books are refined using Image Processing methods. For example, one page in a probate book consists of many entries. The aim of this phase is to isolate each entry by cropping the original image entry-wise to get the best possible output owing to some OCR discrepancies.
 
-[crop.py](../master/crop.py) - This file will crop all images in a directory to concentrate the text on the image.
+**[Optical Character Recognition](../master/OCR)**
+In phase 2, the cropped images of the probate books are parsed under an Optical Character Recognition algorithm to generate the information in text.
 
-[hocr_output.sh](../master/hocr_output.sh) - This shell script will produce a hocr file for each image file in a folder.
-
-[hocr_parsing.py](../master/hocr_parsing.py) - This python script is used to convert hocr output to cropped images based on bounding boxes of each entry.
-
-[hocr_to_crop.py](../master/hocr_to_crop.py) - This python script is used to convert hocr output to cropped images based on bounding boxes of each entry for a folder containing many images.
-
-[crop_to_ocr.py](../master/crop_to_ocr.py) - This python script takes the directry containing cropped entries for a given image and creates a text file that produces OCR text on all the cropped entries.
-
-[dataturks_to_spacy.py](../master/dataturks_to_spacy.py) - Creates NER training data in SpaCy format from JSON downloaded from Dataturks.Once you download the JSON file from Dataturks, you can load it using the python script and outputs the training data in a pickle file having a format which can be used for training using SpaCy.
-
-[train_ner.py](../master/train_ner.py) - This script trains the Named Entity Recognition model and returns the trained model on the probate wills annotated data. The model can be imported to test the remaining entries that are not annotated to extract the entities.
-
-[test_ner.py](../master/test_ner.py) - This python script is used to produce named entities for each entry.
-
-[Inference_Data](../master/Inference_Data) - A csv, tsv and xlsx containing the probate entry text as well as specific entities in the text.
+**[Named Entity Recognition](../master/NER)**
+One of the most challenging parts of the project involves extracting meaningful information from the text generated in Phase 2. For the algorithm to extract particular fields like name, relationships and occupation, it must “learn” the semantics of each probate entry. Methods that tackle such problems form an integral part of Natural Language Processing.
