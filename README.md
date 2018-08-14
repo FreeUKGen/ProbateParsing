@@ -80,4 +80,5 @@ Ensure that virtualenv is present as shown by `(venv)`.
 
 4. You also need to download the spacy model. Download and install it using `python3 -m spacy download en`. Should not take more a few minutes.
 
-5. You can use the setup.sh file to perform all the above setup. Tested with a Ubuntu 16.04, Python 3.5.2 setup. Not recommended because of the very large downloads which may fail. Find the setup file [here](../master/setup.sh).
+5. You can use the setup.sh file to perform all the above setup. Tested with a Ubuntu 16.04, Python 3.5.2 setup. Not recommended because of the very large downloads which may fail. Find the setup file [here](../master/setup.sh). Before running it give it the appropriate permissions by typing in the terminal -   
+`chmod +x setup.sh`
